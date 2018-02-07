@@ -1,6 +1,8 @@
+var Hand = require('./Hand');
+
 class Player {
     constructor() {
-        this.hand = '';
+        this.hand = new Hand();
     }
 
     setHand(value) {

@@ -1,4 +1,5 @@
 var Player = require('../client/Player.js');
+var Hand = require('../client/Hand.js');
 
 describe('Rock, Paper and Scissors', () => {
     var sut = null;
@@ -13,5 +14,9 @@ describe('Rock, Paper and Scissors', () => {
     it('should set the Player choice', () => {
         sut.setHand('rock');
         expect(sut.getHand()).toEqual('rock');
+    });
+
+    it('it should have a Hand defined', () => {
+        expect(sut.getHand()).toEqual(jasmine.any(Hand));
     });
 });
