@@ -1,12 +1,12 @@
+var Symbol = require('./Symbol');
+
 class Hand {
     constructor() {
-        this.symbol = '';
-        this.defeats = '';
-        this.beatenBy = '';
+        this.symbol = {};
     }
 
     setSymbol(value) {
-        this.symbol = value;
+        this.symbol[value] = Symbol.getSymbol(value);
     }
 
     getSymbol() {

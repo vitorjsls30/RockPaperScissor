@@ -13,8 +13,14 @@ describe('Rock, Paper and Scissors', () => {
     });
 
     it('it should set the Player choice', () => {
+        expetedSymbol = {
+            rock: {
+                defeat: 'scissor',
+                loses: 'paper'
+            }
+        };
         sut.setHandChoice('rock');
-        expect(sut.getHandChoice()).equal('rock');
+        expect(sut.getHandChoice()).eql(expetedSymbol);
     });
 
 });
