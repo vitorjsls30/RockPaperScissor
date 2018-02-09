@@ -5,12 +5,12 @@ class Player {
         this.hand = new Hand();
     }
 
-    setHand(value) {
-        this.hand = value;
+    setHandChoice(value) {
+        this.hand.setSymbol(value);
     }
 
-    getHand() {
-        return this.hand;
+    getHandChoice() {
+        return this.hand.symbol;
     }
 }
 

@@ -1,3 +1,4 @@
+var expect = require('chai').expect;
 var Player = require('../client/Player.js');
 var Hand = require('../client/Hand.js');
 
@@ -8,15 +9,12 @@ describe('Rock, Paper and Scissors', () => {
     });
 
     it('it should define a new Player instance', () => {
-        expect(sut).not.toEqual(undefined);
+        expect(sut).not.equal(undefined);
     });
 
-    it('should set the Player choice', () => {
-        sut.setHand('rock');
-        expect(sut.getHand()).toEqual('rock');
+    it('it should set the Player choice', () => {
+        sut.setHandChoice('rock');
+        expect(sut.getHandChoice()).equal('rock');
     });
 
-    it('it should have a Hand defined', () => {
-        expect(sut.getHand()).toEqual(jasmine.any(Hand));
-    });
 });
