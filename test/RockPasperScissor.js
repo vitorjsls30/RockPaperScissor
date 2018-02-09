@@ -8,11 +8,11 @@ describe('Rock, Paper and Scissors', () => {
         sut = new Player();
     });
 
-    it('it should define a new Player instance', () => {
+    it('should define a new Player instance', () => {
         expect(sut).not.equal(undefined);
     });
 
-    it('it should set the Player choice', () => {
+    it('should set the Player choice', () => {
         expetedSymbol = {
             rock: {
                 defeat: 'scissor',
@@ -23,4 +23,9 @@ describe('Rock, Paper and Scissors', () => {
         expect(sut.getHandChoice()).eql(expetedSymbol);
     });
 
+    it('should set a Random Hand Symbol', () => {
+        sut.setRandomHand();
+        expect(sut.getHandChoice()).to.have.property('defeat');
+        expect(sut.getHandChoice()).to.have.property('loses');
+    });
 });

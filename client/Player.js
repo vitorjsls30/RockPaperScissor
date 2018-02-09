@@ -12,6 +12,10 @@ class Player {
     getHandChoice() {
         return this.hand.symbol;
     }
+
+    setRandomHand() {
+        
+    }
 }
 
 module.exports = Player;
