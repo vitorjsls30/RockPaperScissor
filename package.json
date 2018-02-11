@@ -4,7 +4,7 @@
   "description": "The Classic Rock, Paper and Scissors game app made using gulp, babel, webpack and React",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --watch",
     "start": "webpack-dev-server"
   },
   "repository": {

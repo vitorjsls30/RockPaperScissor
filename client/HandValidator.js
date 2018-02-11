@@ -15,6 +15,8 @@ class HandValidator {
             return hand1Key;
         } else if(hand1Key === hand2Defeat) {
             return hand2Key;
+        } else {
+            return 'draw';
         }
     }
 }

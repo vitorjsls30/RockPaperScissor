@@ -35,7 +35,7 @@ describe('Rock, Paper and Scissors', () => {
         });
     });
 
-    it('should verify the winner Hand', () => {
+    it('should validate the Hand choices', () => {
         sut.setHandChoice('rock');
 
         var sut2 = new Player();
@@ -45,5 +45,21 @@ describe('Rock, Paper and Scissors', () => {
          sut2.getHandChoice());
 
         expect(validator.validate()).to.eql('rock');
+    });
+
+    it('should validate the Hand choices with a random Hand', () => {
+        sut.setHandChoice('paper');
+
+        var sut2 = new Player();
+        sut2.setRandomHand();
+
+        var expectedResults = [
+            'rock', 'paper', 'scissor', 'draw'
+        ];
+
+        var validator = new HandValidator(sut.getHandChoice(),
+         sut2.getHandChoice());
+
+        expect(expectedResults).to.contains(validator.validate());
     });
 });
