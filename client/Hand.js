@@ -5,8 +5,16 @@ class Hand {
         this.symbol = {};
     }
 
-    setSymbol(value) {
-        this.symbol[value] = Symbol.getSymbol(value);
+    setSymbol(symbolName) {
+        this.symbol[symbolName] = Symbol.getSymbol(symbolName);
+    }
+
+    setRandomHand() {
+        var symbolsObj = Object.keys(Symbol.symbols);
+        var rnd = Math.floor(Math.random() * symbolsObj.length);
+        var symbolName = symbolsObj[rnd]; 
+        
+        this.symbol[symbolName] = Symbol.getSymbol(symbolName);
     }
 
     getSymbol() {

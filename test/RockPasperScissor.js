@@ -25,7 +25,12 @@ describe('Rock, Paper and Scissors', () => {
 
     it('should set a Random Hand Symbol', () => {
         sut.setRandomHand();
-        expect(sut.getHandChoice()).to.have.property('defeat');
-        expect(sut.getHandChoice()).to.have.property('loses');
+        var actualHandChoice = sut.getHandChoice();
+        var objKeys = Object.keys(actualHandChoice);
+        
+        var expectedProperties = ['defeat', 'loses'];
+        expectedProperties.forEach(prop => {
+            expect(actualHandChoice[objKeys]).to.have.property(prop);
+        });
     });
 });

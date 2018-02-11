@@ -14,7 +14,7 @@ class Player {
     }
 
     setRandomHand() {
-        
+        this.hand.setRandomHand();
     }
 }
 
