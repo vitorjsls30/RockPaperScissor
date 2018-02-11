@@ -1,13 +1,12 @@
 var expect = require('chai').expect;
-var Player = require('../client/Player.js');
-var Hand = require('../client/Hand.js');
-var HandValidator = require('../client/HandValidator.js');
+var player = require('../client/player');
+var handValidator = require('../client/handValidator');
 
 describe('Rock, Paper and Scissors', () => {
     var sut = null;
 
     beforeEach(() => {
-        sut = new Player();
+        sut = new player();
     });
 
     it('should define a new Player instance', () => {
@@ -39,10 +38,10 @@ describe('Rock, Paper and Scissors', () => {
     it('should validate the Hand choices', () => {
         sut.setHandChoice('rock');
 
-        var sut2 = new Player();
+        var sut2 = new player();
         sut2.setHandChoice('scissor');
 
-        var validator = new HandValidator(sut.getHandChoice(),
+        var validator = new handValidator(sut.getHandChoice(),
          sut2.getHandChoice());
 
         expect(validator.validate()).to.eql('rock');
@@ -51,14 +50,14 @@ describe('Rock, Paper and Scissors', () => {
     it('should validate the Hand choices with a random Hand', () => {
         sut.setHandChoice('paper');
 
-        var sut2 = new Player();
+        var sut2 = new player();
         sut2.setRandomHand();
 
         var expectedResults = [
             'rock', 'paper', 'scissor', 'draw'
         ];
 
-        var validator = new HandValidator(sut.getHandChoice(),
+        var validator = new handValidator(sut.getHandChoice(),
          sut2.getHandChoice());
 
         expect(expectedResults).to.contains(validator.validate());
@@ -67,10 +66,10 @@ describe('Rock, Paper and Scissors', () => {
     it('should get Draw for two Hands alike', () => {
         sut.setHandChoice('paper');
 
-        var sut2 = new Player();
+        var sut2 = new player();
         sut2.setHandChoice('paper');
 
-        var validator = new HandValidator(sut.getHandChoice(),
+        var validator = new handValidator(sut.getHandChoice(),
          sut2.getHandChoice());
         
         expect(validator.validate()).to.equal('draw');
@@ -83,10 +82,10 @@ describe('Rock, Paper and Scissors', () => {
     it('should update correctly the Player score after a match', () => {
         sut.setHandChoice('rock');
 
-        var sut2 = new Player();
+        var sut2 = new player();
         sut2.setHandChoice('scissor');
 
-        var validator = new HandValidator(sut.getHandChoice(),
+        var validator = new handValidator(sut.getHandChoice(),
          sut2.getHandChoice());
 
         if(validator.validate() == 'rock') {

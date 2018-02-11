@@ -1,8 +1,8 @@
-var Hand = require('./Hand');
+var hand = require('./hand');
 
 class Player {
     constructor() {
-        this.hand = new Hand();
+        this.hand = new hand();
         this.score = 0;
     }
 
