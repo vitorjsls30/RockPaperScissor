@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var Player = require('../client/Player.js');
 var Hand = require('../client/Hand.js');
+var HandValidator = require('../client/HandValidator.js');
 
 describe('Rock, Paper and Scissors', () => {
     var sut = null;
@@ -32,5 +33,17 @@ describe('Rock, Paper and Scissors', () => {
         expectedProperties.forEach(prop => {
             expect(actualHandChoice[objKeys]).to.have.property(prop);
         });
+    });
+
+    it('should verify the winner Hand', () => {
+        sut.setHandChoice('rock');
+
+        var sut2 = new Player();
+        sut2.setHandChoice('scissor');
+
+        var validator = new HandValidator(sut.getHandChoice(),
+         sut2.getHandChoice());
+
+        expect(validator.validate()).to.eql('rock');
     });
 });
