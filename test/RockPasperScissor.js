@@ -5,7 +5,7 @@ var HandValidator = require('../client/HandValidator.js');
 
 describe('Rock, Paper and Scissors', () => {
     var sut = null;
-    
+
     beforeEach(() => {
         sut = new Player();
     });
@@ -62,5 +62,25 @@ describe('Rock, Paper and Scissors', () => {
          sut2.getHandChoice());
 
         expect(expectedResults).to.contains(validator.validate());
+    });
+
+    it('should retrieve Player score', () => {
+        expect(sut.getPlayerScore()).to.equal(0);
+    });
+
+    it('should update correctly the Player score after a match', () => {
+        sut.setHandChoice('rock');
+
+        var sut2 = new Player();
+        sut2.setHandChoice('scissor');
+
+        var validator = new HandValidator(sut.getHandChoice(),
+         sut2.getHandChoice());
+
+        if(validator.validate() == 'rock') {
+            sut.updatePlayerScore();
+        }
+        
+        expect(sut.getPlayerScore()).to.equal(1);
     });
 });

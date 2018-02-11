@@ -3,6 +3,7 @@ var Hand = require('./Hand');
 class Player {
     constructor() {
         this.hand = new Hand();
+        this.score = 0;
     }
 
     setHandChoice(value) {
@@ -15,6 +16,14 @@ class Player {
 
     setRandomHand() {
         this.hand.setRandomHand();
+    }
+
+    updatePlayerScore() {
+        this.score ++;
+    }
+
+    getPlayerScore() {
+        return this.score;
     }
 }
 
