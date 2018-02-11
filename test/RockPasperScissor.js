@@ -5,6 +5,7 @@ var HandValidator = require('../client/HandValidator.js');
 
 describe('Rock, Paper and Scissors', () => {
     var sut = null;
+    
     beforeEach(() => {
         sut = new Player();
     });

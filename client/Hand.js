@@ -1,4 +1,4 @@
-var Symbol = require('./Symbol');
+var symbols = require('./symbols.json');
 
 class Hand {
     constructor() {
@@ -6,15 +6,15 @@ class Hand {
     }
 
     setSymbol(symbolName) {
-        this.symbol[symbolName] = Symbol.getSymbol(symbolName);
+        this.symbol[symbolName] = symbols[symbolName];
     }
 
     setRandomHand() {
-        var symbolsObj = Object.keys(Symbol.symbols);
+        var symbolsObj = Object.keys(symbols);
         var rnd = Math.floor(Math.random() * symbolsObj.length);
         var symbolName = symbolsObj[rnd]; 
         
-        this.symbol[symbolName] = Symbol.getSymbol(symbolName);
+        this.symbol[symbolName] = symbols[symbolName];
     }
 
     getSymbol() {
