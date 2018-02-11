@@ -64,6 +64,18 @@ describe('Rock, Paper and Scissors', () => {
         expect(expectedResults).to.contains(validator.validate());
     });
 
+    it('should get Draw for two Hands alike', () => {
+        sut.setHandChoice('paper');
+
+        var sut2 = new Player();
+        sut2.setHandChoice('paper');
+
+        var validator = new HandValidator(sut.getHandChoice(),
+         sut2.getHandChoice());
+        
+        expect(validator.validate()).to.equal('draw');
+    });
+
     it('should retrieve Player score', () => {
         expect(sut.getPlayerScore()).to.equal(0);
     });

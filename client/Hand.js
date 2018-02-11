@@ -8,6 +8,10 @@ class Hand {
     setSymbol(symbolName) {
         this.symbol[symbolName] = symbols[symbolName];
     }
+    
+    getSymbol() {
+        return this.symbol;
+    }
 
     setRandomHand() {
         var symbolsObj = Object.keys(symbols);
@@ -15,10 +19,6 @@ class Hand {
         var symbolName = symbolsObj[rnd]; 
         
         this.symbol[symbolName] = symbols[symbolName];
-    }
-
-    getSymbol() {
-        return this.symbol;
     }
 }
 
