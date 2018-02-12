@@ -2,11 +2,13 @@
   "name": "rockpaperscissor",
   "version": "1.0.0",
   "description": "The Classic Rock, Paper and Scissors game app made using gulp, babel, webpack and React",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "mocha --watch",
-    "start": "webpack-dev-server"
+    "play": "node client/main.js s"
   },
+  "preferGlobal": true,
+  "bin": "client/main.js",
   "repository": "git+https://github.com/vitorjsls30/RockPaperScissor.git",
   "author": "Vitor José <vitorjsls30@gmail.com>",
   "license": "ISC",
@@ -21,10 +23,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
-    "html-webpack-plugin": "^2.30.1",
-    "jasmine": "^2.9.0",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "jasmine": "^2.9.0"
   },
   "dependencies": {
     "commander": "^2.14.1",
