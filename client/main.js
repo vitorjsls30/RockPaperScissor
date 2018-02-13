@@ -31,7 +31,30 @@ const questions = {
             'paper',
             'scissor'
         ]
+    },
+    gameReplay: {
+        type: 'confirm',
+        name: 'gameReplay',
+        message: 'Would you like to Play again?'
     }
+};
+
+var recursiveGameReplay = function(gameType) {
+    prompt(questions.gameReplay).then((answer) => {
+        if(answer.gameReplay == true) {
+            if(gameType == 'normal') {
+                prompt(questions.handPick).then((answer) => {
+                    game.playGame(answer.handPicked, 'normal');
+                    recursiveGameReplay('normal');
+                });
+            } else {
+                game.playGame(null, 'random');
+                recursiveGameReplay('random');
+            }
+        } else {
+            game.endGame()
+        }
+    });
 };
 
 program
@@ -47,12 +70,17 @@ program
                 prompt(questions.gameType).then((answer) => {
 
                     if(answer.gameType == 'Player vs Pc') {
+
                         prompt(questions.handPick).then((answer) => {
                             game.playGame(answer.handPicked, 'normal');
+                            recursiveGameReplay('normal');
                         });
+
                     } else {
                         game.playGame(null, 'random');
+                        recursiveGameReplay('random');
                     }
+
                 });
             } else if (option == false){
                 game.endGame();
