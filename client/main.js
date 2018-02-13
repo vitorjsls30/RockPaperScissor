@@ -39,13 +39,18 @@ const questions = {
     }
 };
 
-var recursiveGameReplay = function() {
+var recursiveGameReplay = function(gameType) {
     prompt(questions.gameReplay).then((answer) => {
         if(answer.gameReplay == true) {
-            prompt(questions.handPick).then((answer) => {
-                game.playGame(answer.handPicked, 'normal');
-                recursiveGameReplay();
-            });
+            if(gameType == 'normal') {
+                prompt(questions.handPick).then((answer) => {
+                    game.playGame(answer.handPicked, 'normal');
+                    recursiveGameReplay('normal');
+                });
+            } else {
+                game.playGame(null, 'random');
+                recursiveGameReplay('random');
+            }
         } else {
             game.endGame()
         }
@@ -68,11 +73,12 @@ program
 
                         prompt(questions.handPick).then((answer) => {
                             game.playGame(answer.handPicked, 'normal');
-                            recursiveGameReplay();
+                            recursiveGameReplay('normal');
                         });
 
                     } else {
                         game.playGame(null, 'random');
+                        recursiveGameReplay('random');
                     }
 
                 });

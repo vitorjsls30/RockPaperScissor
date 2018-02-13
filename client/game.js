@@ -8,17 +8,14 @@ class Game {
         this.hand1Key = null;
         this.hand2Key = null;
         this.matchResult = null;
-        this.gameStatus = null;
     }
 
     startGame() {
         this.player1 = new player();
         this.player2 = new player();
-        this.gameStatus = 'started';
     }
 
     endGame() {
-        this.gameStatus = 'finished';
         console.log('Fine! See ya next time! ;)');
     }
 
@@ -58,9 +55,6 @@ class Game {
         }
 
         this.displayGameInfo();
-        this.gameStatus = 'finished';
-
-        return this.gameStatus;
     }
 }
 
