@@ -1,7 +1,7 @@
 {
   "name": "rockpaperscissor",
   "version": "1.0.0",
-  "description": "The Classic Rock, Paper and Scissors game app made using gulp, babel, webpack and React",
+  "description": "A simple Rock, Paper and Scissor Game made with a NodeJs Console Application.",
   "main": "main.js",
   "scripts": {
     "test": "mocha --watch",
@@ -22,9 +22,6 @@
   },
   "dependencies": {
     "commander": "^2.14.1",
-    "inquirer": "^5.1.0",
-    "path": "^0.12.7",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "inquirer": "^5.1.0"
   }
 }
